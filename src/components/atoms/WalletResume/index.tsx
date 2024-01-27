@@ -11,7 +11,7 @@ const WalletResume = ({ country, amount }: WalletResumeProps) => {
     return (
         <Flex align='center' justify='flex-end'>
             <div style={Style.ResumeContainer}>
-                Pais Atual: {country}, Saldo: {country === 'Brazil' ? `R$ ${amount}` : `$ ${amount}`}
+                Pais Atual: {country}, Saldo: {country === 'Brasil' ? `R$ ${amount}` : `$ ${amount}`}
             </div>
         </Flex>
     );

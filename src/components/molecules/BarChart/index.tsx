@@ -1,20 +1,38 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
+import { selectWalletformation } from '@/redux/slices/walletSlice';
+import { useSelector } from 'react-redux';
 
 
 const BarChart = () => {
+
+    const financialInf = useSelector(selectWalletformation);
+
     const Column = dynamic(
         () => import("@ant-design/charts").then((mod) => mod.Column) as any,
         { ssr: false }
     )
+    function sumByCountryAndDate(transactions: any) {
+        const result = transactions.reduce((acc: any, { value, date, country }: any) => {
+            const key = `${country}-${date}`;
+
+            if (!acc[key]) {
+                acc[key] = { value: 0, date, country };
+            }
+
+            acc[key].value += value;
+
+            return acc;
+        }, {});
+
+        return Object.values(result);
+    }
+
     const config = {
-        data: {
-            type: 'fetch',
-            value: 'https://gw.alipayobjects.com/os/antfincdn/iPY8JFnxdb/dodge-padding.json',
-        },
-        xField: '月份',
-        yField: '月均降雨量',
-        colorField: 'name',
+        data: sumByCountryAndDate(financialInf.transactions),
+        xField: 'date',
+        yField: 'value',
+        colorField: 'country',
         group: true,
         label: {
             position: 'inside',
@@ -24,17 +42,11 @@ const BarChart = () => {
                 },
             ],
         },
-        markBackground: {
-            style: {
-                fill: '#eee'
-            }
-        },
-        style: {
-            inset: 5,
-        },
+
+
     };
     return (
-     <Column {...config} />
+        <Column {...config} />
     );
 };
 

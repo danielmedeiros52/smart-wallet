@@ -1,11 +1,10 @@
-import {  Layout } from 'antd';
+import { Layout } from 'antd';
 import React from 'react';
 import * as Style from './styles';
 import BarChart from '@/components/molecules/BarChart';
 
 
 const ChartContainer = () => {
-   
     return (
 
         <Layout.Content style={{ margin: '24px 16px 0' }}>

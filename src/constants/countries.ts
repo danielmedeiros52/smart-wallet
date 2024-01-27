@@ -3,7 +3,7 @@ import { CountryProps } from "@/components/types/countryTypes";
 export const Countries: CountryProps[] = [
     {
         country_code: 'BRA',
-        name: 'Brazil',
+        name: 'Brasil',
         simbol: 'R$',
         currency: 'BRL'
     },
