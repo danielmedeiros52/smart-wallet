@@ -1,0 +1,34 @@
+{
+ "dashboard": {
+  "title": "Dashboard",
+  "changeCountry": "Trocar Pais:", 
+  "countrySelected": "Pais Atual:",
+  "balance": "Saldo:"
+  
+},
+ "messages":{
+    "transactions":{
+      "success":{
+        "title": "Sucesso",
+        "message1": "Transação realizada com sucesso",
+        "message2": "Transação no valor de",
+        "message3": "realizada com sucesso!"
+
+      },
+      "error":{
+        "title": "Erro",
+        "message": "Erro ao realizar transação"
+      }
+    }
+ },
+ "common":{
+      "fieldRequired": "Campo Obrigatório",
+      "invalidValue": "Valor Inválido",
+      "invalidEmail": "Email Inválido",
+      "description": "Descrição",
+      "value": "Valor",
+      "addBalance": "Adicionar Saldo"
+
+    }
+
+}

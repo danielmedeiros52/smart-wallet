@@ -4,9 +4,10 @@ import * as Style from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCountryInformation } from '@/redux/slices/countrySlice';
 import { addTransaction } from '@/redux/slices/walletSlice';
-
+import { useTranslation } from 'react-i18next';
 
 const FormContainer = () => {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const country = useSelector(selectCountryInformation);
     const [form] = Form.useForm();
@@ -52,7 +53,7 @@ const FormContainer = () => {
         api[type]({
             message: 'Saldo Adicionado com sucesso!',
             description:
-                `Transação no valor de ${country.simbol} ${form.getFieldValue('value')} realizada com sucesso!`,
+                `${t('messages.transactions.success.message2')} ${country.simbol} ${form.getFieldValue('value')} ${t('messages.transactions.success.message3')}`,
             placement: 'top',
         });
     };
@@ -63,16 +64,16 @@ const FormContainer = () => {
             <div style={Style.ContainerLayout}>
                 <Flex align='center' justify='space-between'>
                     <Layout.Content>
-                        <Card title={`Adicionar Saldo: ${country.currency}`} style={{ minWidth: 300, maxWidth: 700 }}>
+                        <Card title={`${t('common.addBalance')}: ${country.currency}`} style={{ minWidth: 300, maxWidth: 700 }}>
                             <Form form={form} {...formItemLayout} variant="filled" style={{ maxWidth: 600 }} onFinish={handlesubmit}>
-                                <Form.Item label="Descrição" name="description" rules={[{ required: true, message: 'Este Campo é obrigatório!' }]}>
+                                <Form.Item label={t('common.description')} name="description" rules={[{ required: true, message: t('common.fieldRequired') }]}>
                                     <Input />
                                 </Form.Item>
 
                                 <Form.Item
-                                    label={`Valor  ${country.currency}`}
+                                    label={`${t('common.value')}  ${country.currency}`}
                                     name="value"
-                                    rules={[{ required: true, message: 'Este Campo é obrigatório!' }]}
+                                    rules={[{ required: true, message: t('common.fieldRequired') }]}
                                 >
                                     <InputNumber
                                         controls={false}
@@ -81,7 +82,7 @@ const FormContainer = () => {
 
                                 <Form.Item wrapperCol={{ offset: 6, span: 16 }}>
                                     <Button type="primary" htmlType="submit">
-                                        Adicionar Saldo
+                                        {t('common.addBalance')}
                                     </Button>
                                 </Form.Item>
                             </Form>
