@@ -62,7 +62,7 @@ const FormContainer = () => {
         <Layout.Content style={{ margin: '24px 16px 0' }}>
             {contextHolder}
             <div style={Style.ContainerLayout}>
-                <Flex align='center' justify='space-between'>
+                <Flex align='center' justify='space-between' wrap='wrap'>
                     <Layout.Content>
                         <Card title={`${t('common.addBalance')}: ${country.currency}`} style={{ minWidth: 300, maxWidth: 700 }}>
                             <Form form={form} {...formItemLayout} variant="filled" style={{ maxWidth: 600 }} onFinish={handlesubmit}>
@@ -88,7 +88,7 @@ const FormContainer = () => {
                             </Form>
                         </Card>
                     </Layout.Content>
-                    <Layout.Content>
+                    <Layout.Content style={{ paddingTop: 30 }}>
                         <Image src='logo.svg' />
                     </Layout.Content>
                 </Flex>
