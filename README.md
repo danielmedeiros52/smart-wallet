@@ -22,12 +22,13 @@ npx create-next-app@latest
 ```
 Este aplicativo possui as seguintes dependências:
 
+```bash
 -- @ant-design/charts -- Fornece os gráficos.
 -- antd -- Fornece o layout e todas as necessidades da interface do usuário.
 -- next-seo -- Usado para gerenciar o SEO.
 -- react-i18next -- Usado para promover a internacionalização.
 -- react-redux -- Redux para gerenciar o estado.
-
+```
 
 ## Ingles
 ## Getting Started
